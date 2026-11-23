@@ -2,55 +2,37 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#2B2E33">
+  <meta name="description" content="Services de l'UT Truchtersheim : demandes et contacts.">
   <title>UT Truchtersheim – Services</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: #F4F5F7;
-      color: #111111;
-    }
-    header {
-      background: #2B2E33;
-      color: #FFFFFF;
-      padding: 24px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 22px;
-      letter-spacing: 1px;
-    }
-    header p {
-      margin: 4px 0 0;
-      color: #C9CCD1;
-      font-size: 14px;
-    }
-    main {
-      padding: 20px;
-    }
-    .carte {
-      background: #FFFFFF;
-      border-left: 4px solid #C8102E;
-      border-radius: 8px;
-      padding: 16px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1>UT TRUCHTERSHEIM</h1>
-    <p>Services de l'unité</p>
-  </header>
-  <main>
-    <div class="carte">
-      <strong>Application en construction.</strong><br>
-      Cette page sert uniquement à vérifier l'hébergement.
+  <!-- Toute l'interface est construite par js/app.js à partir du référentiel. -->
+  <div id="app" class="app"></div>
+
+  <!-- Message bref affiché en bas de l'écran (lu aussi par les lecteurs d'écran) -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Fenêtre d'aide à l'installation -->
+  <dialog id="aide-installation" class="dialogue" aria-labelledby="aide-titre">
+    <div class="dialogue-entete">
+      <h2 id="aide-titre">Installer l'application</h2>
+      <button type="button" class="dialogue-fermer" data-fermer aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
     </div>
-  </main>
+    <div id="aide-contenu" class="dialogue-contenu"></div>
+  </dialog>
+
+  <noscript>
+    <p class="noscript">Cette application a besoin de JavaScript. Activez-le dans les réglages de votre navigateur.</p>
+  </noscript>
+
+  <script src="data/services.js"></script>
+  <script src="js/icones.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

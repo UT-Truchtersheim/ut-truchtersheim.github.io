@@ -1,0 +1,223 @@
+/* ============================================================
+   CHARTE GRAPHIQUE – APPLICATION UT TRUCHTERSHEIM
+   Les couleurs se changent ici, dans :root.
+   ============================================================ */
+
+/* Polices hébergées avec l'application (aucun appel à Google Fonts) */
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("../fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("../fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 600; font-display: swap; src: url("../fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("../fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  --rouge: #C8102E;
+  --rouge-clair: #FBE8EB;
+  --anthracite: #2B2E33;
+  --noir: #111111;
+  --texte-doux: #4A4F57;
+  --texte-discret: #5A5F66;
+  --fond: #F4F5F7;
+  --blanc: #FFFFFF;
+  --bordure: #E2E4E8;
+  --encadre: #E9EBEE;
+  --rayon: 14px;
+  --police: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --police-titre: "Barlow Condensed", "Arial Narrow", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--noir);
+  font-family: var(--police);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Sur ordinateur, l'appli garde une largeur de téléphone, centrée */
+.app {
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--fond);
+  display: flex;
+  flex-direction: column;
+}
+
+svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+a:focus-visible, button:focus-visible { outline: 3px solid var(--rouge); outline-offset: 2px; }
+
+/* ---------- En-tête ---------- */
+.entete {
+  background: var(--anthracite);
+  color: var(--blanc);
+  padding: calc(24px + env(safe-area-inset-top)) 20px 22px;
+}
+.entete-accueil { display: flex; align-items: center; gap: 14px; }
+.logo {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: var(--rouge); color: var(--blanc);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--police-titre); font-weight: 700; font-size: 26px; letter-spacing: 1px;
+}
+.entete h1 {
+  margin: 0;
+  font-family: var(--police-titre); font-weight: 700;
+  font-size: 28px; letter-spacing: 1.5px; line-height: 1;
+  text-transform: uppercase;
+}
+.sous-titre { margin: 4px 0 0; font-size: 14px; color: #C9CCD1; }
+
+/* ---------- Accueil ---------- */
+.accueil-intro { padding: 22px 20px 6px; }
+.accueil-intro h2 { margin: 0 0 4px; font-size: 20px; font-weight: 600; }
+.accueil-intro p { margin: 0; font-size: 15px; color: var(--texte-doux); }
+
+.grille {
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.tuile {
+  min-height: 116px;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  padding: 12px 6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px;
+  text-decoration: none; color: var(--noir);
+  transition: transform .08s ease, border-color .15s ease;
+}
+.tuile:active { transform: scale(.97); border-color: var(--rouge); }
+.pastille {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--rouge-clair); color: var(--rouge);
+  display: flex; align-items: center; justify-content: center;
+}
+.tuile-nom { font-size: 13px; font-weight: 600; line-height: 1.2; text-align: center; overflow-wrap: anywhere; }
+
+.pied {
+  margin-top: auto;
+  padding: 16px 20px calc(24px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.bouton-installer {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 16px;
+  font: inherit; font-size: 14px; font-weight: 500; color: var(--anthracite);
+  background: var(--blanc); border: 1px solid #C9CCD1; border-radius: 22px; cursor: pointer;
+}
+.bouton-installer svg { width: 18px; height: 18px; }
+.version { margin: 0; font-size: 12px; color: var(--texte-discret); }
+
+/* ---------- Page d'un service ---------- */
+.entete-service { padding-top: calc(10px + env(safe-area-inset-top)); }
+.lien-retour {
+  display: inline-flex; align-items: center; gap: 4px;
+  min-height: 44px; padding-right: 12px; margin-left: -6px;
+  font: inherit; font-size: 15px; font-weight: 500; color: var(--blanc);
+  background: none; border: 0; cursor: pointer; text-decoration: none;
+}
+.titre-service { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
+.titre-service .pastille { width: 52px; height: 52px; background: var(--rouge); color: var(--blanc); }
+.titre-service .pastille svg { width: 28px; height: 28px; }
+.titre-service h1 { font-size: 30px; letter-spacing: 1px; line-height: 1.05; }
+
+.contenu-service {
+  padding: 18px 16px calc(110px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; gap: 16px;
+}
+.description { margin: 0; font-size: 15px; color: var(--texte-doux); }
+
+.consignes {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--encadre); border-radius: 12px; padding: 12px 14px;
+}
+.consignes svg { width: 20px; height: 20px; margin-top: 1px; color: var(--anthracite); }
+.consignes p { margin: 0; font-size: 14px; color: var(--anthracite); }
+
+.intertitre {
+  margin: 4px 0 0;
+  font-size: 13px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase;
+  color: var(--texte-discret);
+}
+
+.liste-types {
+  list-style: none; margin: 0; padding: 0;
+  background: var(--blanc); border: 1px solid var(--bordure); border-radius: var(--rayon);
+  overflow: hidden;
+}
+.liste-types li + li { border-top: 1px solid #ECEEF1; }
+.type {
+  width: 100%; min-height: 56px; padding: 10px 14px 10px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font: inherit; font-size: 16px; font-weight: 500; color: var(--noir); text-align: left;
+  background: none; border: 0; text-decoration: none; cursor: pointer;
+}
+.type:active { background: var(--fond); }
+.type svg { width: 20px; height: 20px; color: var(--rouge); }
+.type-a-venir { color: var(--texte-discret); font-size: 12px; font-weight: 500; white-space: nowrap; }
+
+.responsable { margin: 0; font-size: 14px; color: var(--texte-doux); }
+.responsable strong { color: var(--noir); font-weight: 600; }
+
+.barre-contact {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  max-width: 480px; margin: 0 auto;
+  padding: 14px 16px calc(16px + env(safe-area-inset-bottom));
+  background: var(--fond); border-top: 1px solid var(--bordure);
+}
+.bouton-contact {
+  width: 100%; min-height: 54px; border-radius: var(--rayon);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font: inherit; font-size: 17px; font-weight: 600;
+  background: var(--rouge); color: var(--blanc); border: 0; text-decoration: none; cursor: pointer;
+}
+.bouton-contact[aria-disabled="true"] { background: #6B7079; }
+
+/* ---------- Message bref ---------- */
+.toast {
+  position: fixed; left: 16px; right: 16px; bottom: calc(96px + env(safe-area-inset-bottom));
+  max-width: 448px; margin: 0 auto;
+  padding: 12px 16px; border-radius: 12px;
+  background: var(--anthracite); color: var(--blanc); font-size: 14px;
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast.visible { opacity: 1; transform: none; }
+
+/* ---------- Fenêtre d'aide ---------- */
+.dialogue {
+  width: min(440px, calc(100% - 32px));
+  border: 0; border-radius: 16px; padding: 0;
+  color: var(--noir); background: var(--blanc);
+}
+.dialogue::backdrop { background: rgba(17, 17, 17, .55); }
+.dialogue-entete {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 12px 8px 20px;
+}
+.dialogue-entete h2 { margin: 0; font-size: 19px; }
+.dialogue-fermer {
+  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  background: none; border: 0; cursor: pointer; color: var(--anthracite);
+}
+.dialogue-contenu { padding: 0 20px 20px; font-size: 15px; }
+.dialogue-contenu ol { margin: 8px 0 0; padding-left: 22px; }
+.dialogue-contenu li { margin-bottom: 8px; }
+
+.noscript { padding: 20px; text-align: center; }
+
+/* Respect du réglage « réduire les animations » */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
